@@ -1,98 +1,169 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>I Love You Iti</title>
+    <meta charset="UTF-8">
+    <title>Happy Birthday ❤️</title>
+
     <style>
-        body {
-            margin: 0;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(135deg,#ff9dbb,#ff6f91);
-            font-family: "Segoe UI", Arial, sans-serif;
+        body{
+            margin:0;
+            padding:0;
+            background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+            font-family:Arial,sans-serif;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+            overflow:hidden;
         }
 
-        .card {
-            width: min(90%, 800px);
-            background: rgba(255,255,255,0.25);
-            backdrop-filter: blur(10px);
-            border-radius: 24px;
-            padding: 30px;
-            color: white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            text-align: center;
+        .container{
+            background:white;
+            width:80%;
+            max-width:700px;
+            padding:40px;
+            border-radius:20px;
+            text-align:center;
+            box-shadow:0 0 20px rgba(0,0,0,.2);
         }
 
-        button {
-            padding: 12px 24px;
-            border: none;
-            border-radius: 999px;
-            cursor: pointer;
-            font-size: 18px;
-            margin-top: 15px;
+        h1{
+            color:#ff4081;
         }
 
-        #surprise {
-            display: none;
-            margin-top: 25px;
-            text-align: left;
-            white-space: pre-wrap;
-            line-height: 1.8;
-            font-size: 18px;
-            max-height: none;
-            overflow: visible;
+        button{
+            margin-top:20px;
+            padding:15px 35px;
+            border:none;
+            border-radius:50px;
+            background:#ff4081;
+            color:white;
+            font-size:20px;
+            cursor:pointer;
         }
 
-            #surprise.show {
-                display: block;
+        button:hover{
+            background:#e91e63;
+        }
+
+        #surprise{
+            display:none;
+            margin-top:30px;
+            animation:fade 2s;
+        }
+
+        #surprise.show{
+            display:block;
+        }
+
+        @keyframes fade{
+            from{opacity:0;}
+            to{opacity:1;}
+        }
+
+        .heart{
+            position:fixed;
+            color:red;
+            animation:fall 6s linear infinite;
+            font-size:24px;
+        }
+
+        @keyframes fall{
+            0%{
+                transform:translateY(-100px);
             }
+            100%{
+                transform:translateY(100vh);
+            }
+        }
     </style>
 </head>
+
 <body>
-    <div class="card">
-        <h1>I Love You, Iti ❤️</h1>
-        <p>Click the button to open your surprise message</p>
-        <button onclick="showSurprise()">🎁 Open Surprise</button>
 
-        <div id="surprise">
-            💌 Happy Birthday, Iti! 🎂❤️
+<div class="container">
 
-            I don't know if words will ever be enough to tell you how much you mean to me, but today I just want to speak from my heart.
+<h1>🎂 Happy Birthday My Love ❤️</h1>
 
-            Aaj ka din sirf tera birthday nahi hai, it's a reminder that someone truly special came into this world.
+<p>
+May your smile never fade.<br>
+May every dream come true.<br>
+You deserve endless happiness today and always.
+</p>
 
-            Tere saath har chhoti si conversation, har smile, har memory mere liye special hai.
+<button onclick="showSurprise()">
+🎁 Open Your Surprise
+</button>
 
-            I know I'm not perfect, kabhi kabhi main overthink karta hoon, but my feelings for you are always real.
+<div id="surprise">
 
-            Thank you for being patient with me, mujhe hasane ke liye, meri baatein sunne ke liye, aur meri life ka itna important part banne ke liye.
+<h2>❤️ My Message ❤️</h2>
 
-            So today, forget every worry, laugh a little louder, smile a little longer, and enjoy your day.
+<p>
 
-            Once again, happy birthday my love. ❤️
-        </div>
-    </div>
+Thank you for being patient with me,<br><br>
 
-<script>
-    function showSurprise() {
-        document.getElementById("surprise").classList.add("show");
+Mujhe hasane ke liye,<br>
 
-        const music = document.getElementById("bgMusic");
-        music.play().catch(function (error) {
-            console.log(error);
-        });
-    }
+Meri baatein sunne ke liye,<br>
 
-</script>
+Aur meri life ko itna beautiful banane ke liye.<br><br>
 
-<script src="{{ url_for('static', filename='script.js') }}"></script>
+Today forget every worry,<br>
+
+Laugh a little louder,<br>
+
+Smile a little longer,<br>
+
+And enjoy your special day.<br><br>
+
+Happy Birthday My Love ❤️
+
+</p>
+
+</div>
+
+</div>
 
 <audio id="bgMusic" loop>
     <source src="{{ url_for('static', filename='music/love.mp3') }}" type="audio/mpeg">
 </audio>
+
+<script>
+
+function showSurprise(){
+
+document.getElementById("surprise").classList.add("show");
+
+const music=document.getElementById("bgMusic");
+
+music.play().catch(function(err){
+console.log(err);
+});
+
+for(let i=0;i<40;i++){
+
+let heart=document.createElement("div");
+
+heart.innerHTML="❤️";
+
+heart.className="heart";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.animationDuration=(Math.random()*4+3)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},6000);
+
+}
+
+}
+
+</script>
 
 </body>
 </html>
