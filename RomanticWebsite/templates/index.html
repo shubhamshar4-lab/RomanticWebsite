@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>I Love You Iti</title>
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg,#ff9dbb,#ff6f91);
+            font-family: "Segoe UI", Arial, sans-serif;
+        }
+
+        .card {
+            width: min(90%, 800px);
+            background: rgba(255,255,255,0.25);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 30px;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 999px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 15px;
+        }
+
+        #surprise {
+            display: none;
+            margin-top: 25px;
+            text-align: left;
+            white-space: pre-wrap;
+            line-height: 1.8;
+            font-size: 18px;
+            max-height: none;
+            overflow: visible;
+        }
+
+            #surprise.show {
+                display: block;
+            }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>I Love You, Iti ❤️</h1>
+        <p>Click the button to open your surprise message</p>
+        <button onclick="showSurprise()">🎁 Open Surprise</button>
+
+        <div id="surprise">
+            💌 Happy Birthday, Iti! 🎂❤️
+
+            I don't know if words will ever be enough to tell you how much you mean to me, but today I just want to speak from my heart.
+
+            Aaj ka din sirf tera birthday nahi hai, it's a reminder that someone truly special came into this world.
+
+            Tere saath har chhoti si conversation, har smile, har memory mere liye special hai.
+
+            I know I'm not perfect, kabhi kabhi main overthink karta hoon, but my feelings for you are always real.
+
+            Thank you for being patient with me, mujhe hasane ke liye, meri baatein sunne ke liye, aur meri life ka itna important part banne ke liye.
+
+            So today, forget every worry, laugh a little louder, smile a little longer, and enjoy your day.
+
+            Once again, happy birthday my love. ❤️
+        </div>
+    </div>
+
+    <script>
+        function showSurprise() {
+            document.getElementById("surprise").classList.add("show");
+        }
+    </script>
+</body>
+</html>
